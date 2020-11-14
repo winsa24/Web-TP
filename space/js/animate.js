@@ -1,5 +1,6 @@
 var flag = true; //direction
 var shootflag = false;
+var timer;
 // var bullet = document.getElementById('bullet');
 // bullet.style.animationPlayState = 'paused';
 document.onkeydown = function (even) {
@@ -16,18 +17,21 @@ document.onkeydown = function (even) {
         bullet.style.left = parseInt(cs2.left) + 20 + "px";
     }
     if(even.keyCode == 32){
-        alert("shoot");
         shootflag = !shootflag;
     }
+}
+function shoot(){
+    const bullet = document.getElementById('bullet');
     if(shootflag){
-        bullet.style.animationPlayState = 'running';
+        bullet.style.animation = 'shoot 5s infinite';
+        setInterval(boom, 1000);
     }else{
-        bullet.style.animationPlayState = 'paused';
+        bullet.style.animation = '';
     }
 }
-
 window.onload = function(){
-    setInterval(move, 1000);
+    timer = setInterval(move, 1000);
+    setInterval(shoot, 100);
 }
 function move() {
     const img = document.getElementById('ss');
@@ -60,4 +64,26 @@ function changedir() {
     flag = !flag;
     img.style.transform = 'rotate(180deg)';
 }
-
+function boom(){
+    const img = document.getElementById('ss');
+    let cs = window.getComputedStyle(img,null);
+    const bullet = document.getElementById('bullet');
+    let cs2 = window.getComputedStyle(bullet,null);
+    const boom = document.getElementById('boom');
+    // alert("1:" + parseInt(cs2.left));
+    // alert("2:" + parseInt(cs.left));
+    if((parseInt(cs2.left) > parseInt(cs.left)) && (parseInt(cs2.left) < parseInt(cs.left) + 50)
+        && (parseInt(cs2.top) > parseInt(cs.top)) && (parseInt(cs2.top) < parseInt(cs.top) + 50) ){
+        boom.style.visibility = "visible";
+        boom.style.left = cs.left;
+        boom.style.top = cs.top;
+        clearInterval(timer);
+        // alert("Click Restart Button");
+    }
+}
+function restart() {
+    timer = setInterval(move, 1000);
+    setInterval(shoot, 100);
+    const boom = document.getElementById('boom');
+    boom.style.visibility = "hidden";
+}

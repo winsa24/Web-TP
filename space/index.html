@@ -8,9 +8,17 @@
 </head>
 <body>
     Speed : <input id="speed" value="20">
+    <button onclick="restart()">restart</button>
     <img src="media/planet.png" id="planet">
     <img src="media/spaceship.png" id="ss" onclick="changedir()">
     <img src="media/gun.png" id="gun">
     <img src="media/bullet.jpeg" id="bullet">
+    <label id="hint">
+        Enter different number to change the speed of spaceship<br>
+        Press "left" and "right" key to move the gun<br>
+        Press "Space" key to start shooting. Press "Space" again to stop<br>
+        If you shoot the spaceship, click "restart" button to restart
+    </label>
+    <img src="media/boom.png" id="boom">
 </body>
 </html>
