@@ -1,0 +1,11 @@
+body{
+    background-color: antiquewhite;
+}
+
+.name{
+    font-size: 21px;
+}
+.module{
+    font-size: 14px;
+    color : blue;
+}

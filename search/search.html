@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+<h1>Searching</h1>
+name <input id="name">
+<button onclick="searchName()">search</button>
+module <input id="module">
+<button onclick="searchModule()">search</button>
+
+<ul id="nav">
+    <li class="name"><spin>Student A</spin>
+        <ul>
+            <li class="module">Module 1</li>
+            <li class="module">Module 2</li>
+            <li class="module">Module 3</li>
+        </ul>
+    </li>
+    <li class="name"><spin>Student B</spin>
+        <ul>
+            <li class="module">Module 2</li>
+            <li class="module">Module 4</li>
+        </ul>
+    </li>
+    <li class="name"><spin>Student C</spin>
+        <ul>
+            <li class="module">Module 1</li>
+        </ul>
+    </li>
+</ul>
+</body>
+<script src="search.js">
+</script>
+</html>
